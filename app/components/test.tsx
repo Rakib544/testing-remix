@@ -25,7 +25,7 @@ const Test = () => {
 
   const [socket, setSocket] = React.useState<any>();
   React.useEffect(() => {
-    const s = io("http://localhost:8080");
+    const s = io("http://localhost:8080", { transports: ["websocket"] });
     setSocket(s);
 
     return () => {
