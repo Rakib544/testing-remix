@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import { io } from "socket.io-client";
 interface User {
   userId: number;
   id: number;
@@ -22,8 +22,36 @@ const Test = () => {
 
     getPosts();
   }, []);
-  console.log(state);
-  return <div>Hello this is test component</div>;
+
+  const [socket, setSocket] = React.useState<any>();
+  React.useEffect(() => {
+    const s = io("http://localhost:8080");
+    setSocket(s);
+
+    return () => {
+      s.disconnect();
+    };
+  }, []);
+
+  console.log(socket);
+
+  socket?.off("new_message").on("new_message", (data: any) => {
+    console.log(data);
+  });
+
+  const handleClick = () => {
+    window.fetch("http://localhost:8080/message/send", {
+      method: "POST",
+      body: JSON.stringify("jgnbkjgfn"),
+    });
+  };
+
+  return (
+    <div>
+      Hello this is test component
+      <button onClick={handleClick}>Load</button>
+    </div>
+  );
 };
 
 export default Test;
