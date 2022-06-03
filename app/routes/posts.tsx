@@ -4,7 +4,7 @@ import { useLoaderData } from "@remix-run/react";
 import Nav from "~/components/nav";
 
 export const loader: LoaderFunction = async () => {
-  const posts = await fetch("http://localhost:8080/post");
+  const posts = await fetch("https://aqueous-island-70794.herokuapp.com/post");
   return json(await posts.json());
 };
 

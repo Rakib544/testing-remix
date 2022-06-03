@@ -40,7 +40,7 @@ const Test = () => {
   });
 
   const handleClick = () => {
-    window.fetch("http://localhost:8080/message/send", {
+    window.fetch("https://aqueous-island-70794.herokuapp.com/message/send", {
       method: "POST",
       body: JSON.stringify("jgnbkjgfn"),
     });

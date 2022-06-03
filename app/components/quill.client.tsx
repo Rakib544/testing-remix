@@ -78,7 +78,7 @@ function Quill({ defaultValue }: PropsType) {
 
   const handleSubmit = () => {
     window
-      .fetch("http://localhost:8080/post/create", {
+      .fetch("https://aqueous-island-70794.herokuapp.com/post/create", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
