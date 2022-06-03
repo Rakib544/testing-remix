@@ -5,7 +5,7 @@ export default function Index() {
     <>
       <Nav />
       <div>
-        <h1 className="font-bold text-4xl text-blue-500">
+        <h1 className="font-bold text-4xl text-blue-500 text-center my-4">
           Welcome to Remix App
         </h1>
       </div>
