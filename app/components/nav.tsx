@@ -6,7 +6,9 @@ const Nav = () => {
   const [socket, setSocket] = React.useState<any>();
   const [notification, setNotification] = React.useState<string>("");
   React.useEffect(() => {
-    const s = io("http://localhost:8080", { transports: ["websocket"] });
+    const s = io("https://aqueous-island-70794.herokuapp.com/", {
+      transports: ["websocket"],
+    });
     setSocket(s);
 
     return () => {
